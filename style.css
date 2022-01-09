@@ -62,6 +62,6 @@ h1 {
   margin: 0;
 }
 
-/* .box:hover {
+.box-drawn {
   background: rgb(222, 180, 177);
-} */
+}

@@ -1,17 +1,5 @@
 
-// let gridSize = prompt("Enter grid size here");
 let gridSize = 16;
-let boxSize = 2;
-
-// create grid
-gridContainer = document.querySelector(".grid-container");
-// for(let i = 0; i < (gridSize * 2 + 1); i++) {
-//     box = document.createElement("div");
-//     box.classList.add('box');
-//     box.style.width = `${boxSize}em`;
-//     box.style.height = `${boxSize}em`;
-//     container.appendChild(box);
-// }
 
 function buildGrid(gridSize) {
     gridContainer.style = `grid-template-columns: repeat(${gridSize}, minmax(0, 1fr))`;
@@ -24,7 +12,31 @@ function buildGrid(gridSize) {
     }
 }
 
+function drawBox(e) {
+    e.target.classList.add('box-drawn');
+}
+
+function addDrawBoxEvent() {
+    box = document.querySelectorAll(".box");
+    Array.from(box).forEach(element => {
+        element.addEventListener('mouseover',drawBox);
+    }); 
+}
+
+// create grid
+gridContainer = document.querySelector(".grid-container");
+// for(let i = 0; i < (gridSize * 2 + 1); i++) {
+//     box = document.createElement("div");
+//     box.classList.add('box');
+//     box.style.width = `${boxSize}em`;
+//     box.style.height = `${boxSize}em`;
+//     container.appendChild(box);
+// }
+
+
+
 buildGrid(gridSize);
+addDrawBoxEvent();
 
 btn = document.querySelector(".btn");
 btn.addEventListener('click', () => {
@@ -36,4 +48,7 @@ btn.addEventListener('click', () => {
         gridSize = prompt("Enter new grid size here:");
     } while (gridSize > 100);
     buildGrid(gridSize);
+    addDrawBoxEvent();
 });
+
+

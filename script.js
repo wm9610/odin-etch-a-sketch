@@ -22,8 +22,10 @@ function buildGrid(gridSize) {
 function addDrawBoxEvent() {
     box = document.querySelectorAll(".box");
     Array.from(box).forEach(element => {
+        let transparency = 0.2;
         element.addEventListener('mouseover', e => {
-            e.target.style.background = `rgba(${randomRed}, ${randomGreen}, ${randomBlue})`;
+            e.target.style.background = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${transparency})`;
+            transparency += 0.2;
         });
     }); 
 }
@@ -45,7 +47,6 @@ addDrawBoxEvent();
 btn = document.querySelector(".btn");
 btn.addEventListener('click', () => {
     while(gridContainer.hasChildNodes()) {
-        console.log("remove child");
         gridContainer.removeChild(gridContainer.lastChild);
     }
     do {

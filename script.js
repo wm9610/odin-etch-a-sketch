@@ -25,7 +25,9 @@ function addDrawBoxEvent() {
         let transparency = 0.2;
         element.addEventListener('mouseover', e => {
             e.target.style.background = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${transparency})`;
-            transparency += 0.2;
+            if(transparency !== 1) {
+                transparency += 0.2;
+            }
         });
     }); 
 }

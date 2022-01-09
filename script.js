@@ -22,11 +22,11 @@ function buildGrid(gridSize) {
 function addDrawBoxEvent() {
     box = document.querySelectorAll(".box");
     Array.from(box).forEach(element => {
-        let transparency = 0.2;
+        let transparency = 0;
         element.addEventListener('mouseover', e => {
-            e.target.style.background = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${transparency})`;
             if(transparency !== 1) {
                 transparency += 0.2;
+                e.target.style.background = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${transparency})`;
             }
         });
     }); 
